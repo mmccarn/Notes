@@ -66,6 +66,15 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
   shutdown -r now
   ```
 
+9. Determine the IP address and connect to Kibana  
+   
+   ```
+   # display the IP Address
+   hostname -I
+   ```
+   
+   http://IP_ADDRESS:5601
+   
 ---
 
 <a name="ramsize">*</a>: Memory Size for Wazuh VM  
