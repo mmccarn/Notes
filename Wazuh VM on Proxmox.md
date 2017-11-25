@@ -1,6 +1,6 @@
 Wazuh VM on Proxmox
 
-From the [Wazuh VM Install Guide](https://github.com/wazuh/wazuh-documentation/blob/master/source/installation-guide/virtual-machine.rst):
+From the [Wazuh VM Install Guide](https://documentation.wazuh.com/current/installation-guide/virtual-machine.html):
 
 > We provide a pre-built virtual machine image (OVA), you can directly import using VirtualBox (where has been built it) and other OVA compatible virtualization system as well.  
 > 
