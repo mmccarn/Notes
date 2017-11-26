@@ -62,11 +62,22 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
   - update using
 
   ```
+  # update free geop data
+  geoipupdate
+  cd /etc/logstash
+  # create symlinks to geoip data in /etc/logstash
+  # (I don't know if this works...)
+  ln -s /usr/share/GeoIP/GeoLite* .
+  # schedule weekly geoip updates
+  cd /etc/cron.weekly
+  ln -s /usr/bin/geoipupdate .
+  # install any pending Centos or Wazuh updates
   yum update -y
   shutdown -r now
   ```
 
-9. Determine the IP address and connect to Kibana  
+
+10. Determine the IP address and connect to Kibana  
    
    ```
    # display the IP Address
