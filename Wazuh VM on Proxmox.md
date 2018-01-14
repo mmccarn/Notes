@@ -10,7 +10,7 @@ From the [Wazuh VM Install Guide](https://documentation.wazuh.com/current/instal
 
 These instructions describe how to install the provided Virtualbox VM on Proxmox.
 
-At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust the instructions as versions change.
+At the time of writing, the VM version is wazuh3.1.0_6.1.1 - you will need to adjust the instructions as versions change.
 
 1. Get the latest VM download URL
   - Open the Wazuh VM Install Guide linked above
@@ -25,8 +25,17 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
   mkdir ~/wazuh
   cd ~/wazuh
   # wget <paste the vm url from step 1 here>
-  wget https://packages.wazuh.com/vm/wazuh2.1.1_5.6.3.ova
-  tar xvf wazuh2.1.1_5.6.3.ova
+  wget https://packages.wazuh.com/vm/wazuh3.1.0_6.1.1.ova
+  #
+  # verify that the md5 checksum of the downloaded file matches the value 
+  # shown on the wazuh download page.
+  # Be sure to use the correct checksum for the file you have just downloaded!
+  OVA=wazuh3.1.0_6.1.1.ova
+  MD5=3be23b186b414d95ebc94caa3a72cb0c
+  [[ $(md5sum $OVA |awk '{print $1}') == "$MD5" ]] && echo Checksum OK || echo Checksum DOES NOT MATCH
+  #
+  
+  tar xvf wazuh3.1.0_6.1.1.ova
  ```
 
 4. Convert the vmdk disk image to qcow2 format  
@@ -50,11 +59,11 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
   locate vm-109-disk
   ```
 
-7. Copy the qcow2 file created in step 3 on top of the qcow2 file created in step 4  
+7. Copy the qcow2 file created in step 4 on top of the qcow2 file created in step 5  
    (Feel free to replace $(locate vm-109-disk) with the actual path to the vm disk file)
 
   ```
-  cp ~/wazuh/wazuh2.1.1_5.6.3-2-disk1.qcow2 $(locate vm-109-disk)
+  cp ~/wazuh/wazuh3.1.0_6.1.1-disk1.qcow2 $(locate vm-109-disk)
   ```
 
 8. 'Start' the VM, install updates, and reboot
@@ -94,7 +103,7 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
    grep -H "of memory" *.ovf
    #
    # result:
-   # wazuh2.1.1_5.6.3-2.ovf:        <rasd:ElementName>2048MB of memory</rasd:ElementName>
+   # wazuh3.1.0_6.1.1.ovf:        <rasd:ElementName>2048MB of memory</rasd:ElementName>
    ```
 
 <a name="disksize">**</a>: Disk size for Wazuh VM  
@@ -112,5 +121,5 @@ At the time of writing, the VM version is 2.1.1_5.6.3 - you will need to adjust 
    grep -H ovf:capacity *.ovf
    #
    # result:
-   # wazuh2.1.1_5.6.3-2.ovf:    <Disk ovf:capacity="20" ovf:capacityAllocationUnits="byte * 2^30" ... (you can ignore the rest)
+   # wazuh3.1.0_6.1.1.ovf:    <Disk ovf:capacity="20" ovf:capacityAllocationUnits="byte * 2^30" ... (you can ignore the rest)
    ```
