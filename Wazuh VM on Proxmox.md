@@ -35,7 +35,7 @@ At the time of writing, the VM version is wazuh3.1.0_6.1.1 - you will need to ad
   [[ $(md5sum $OVA |awk '{print $1}') == "$MD5" ]] && echo Checksum OK || echo Checksum DOES NOT MATCH
   #
   
-  tar xvf wazuh3.1.0_6.1.1.ova
+  tar xvf $OVA
  ```
 
 4. Convert the vmdk disk image to qcow2 format  
@@ -55,15 +55,16 @@ At the time of writing, the VM version is wazuh3.1.0_6.1.1 - you will need to ad
    ("109" in this example)
 
   ```
+  VM=109
   updatedb
-  locate vm-109-disk
+  locate vm-$VM-disk
   ```
 
 7. Copy the qcow2 file created in step 4 on top of the qcow2 file created in step 5  
    (Feel free to replace $(locate vm-109-disk) with the actual path to the vm disk file)
 
   ```
-  cp ~/wazuh/wazuh3.1.0_6.1.1-disk1.qcow2 $(locate vm-109-disk)
+  cp ${OVA/.ova}-*.qcow2 $(locate vm-$VM-disk)
   ```
 
 8. 'Start' the VM, install updates, and reboot
