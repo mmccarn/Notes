@@ -72,18 +72,24 @@ At the time of writing, the VM version is wazuh3.1.0_6.1.1 - you will need to ad
   - update using
 
   ```
+  # install updates *except* to elasticsearch and wazuh
+  # (the elasticsearch / wazuh connection seems to break on every update)
+  yum --disablerepo=elasticsearch* --disablerepo=wazuh* update -y
+  reboot
+  ```
+  
+  9. Enable GeoIP
+  (GeoIP may be broken / this does not work as of 2018-04-07)
+  ```
   # update free geop data
   geoipupdate
   cd /etc/logstash
   # create symlinks to geoip data in /etc/logstash
-  # (I don't know if this works...)
   ln -s /usr/share/GeoIP/GeoLite* .
   # schedule weekly geoip updates
   cd /etc/cron.weekly
   ln -s /usr/bin/geoipupdate .
-  # install any pending Centos or Wazuh updates
-  yum update -y
-  shutdown -r now
+  
   ```
 
 
