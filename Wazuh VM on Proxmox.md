@@ -30,9 +30,9 @@ At the time of writing, the VM version is wazuh3.1.0_6.1.1 - you will need to ad
   # verify that the md5 checksum of the downloaded file matches the value 
   # shown on the wazuh download page.
   # Be sure to use the correct checksum for the file you have just downloaded!
-  OVA=wazuh3.1.0_6.1.1.ova
-  MD5=3be23b186b414d95ebc94caa3a72cb0c
-  [[ $(md5sum $OVA |awk '{print $1}') == "$MD5" ]] && echo Checksum OK || echo Checksum DOES NOT MATCH
+  OVA=wazuh3.7.0_6.4.3.ova
+  SHA512=cbde3c24a9a485fa0c8c7293a27116d946a6acc33f5ba7cc67e4b1927de3d79a17eabbc51a5f5d4834a8ab009a475b15ec51cd5ed3b9d6a9afd03c4d95829929
+  [[ $(sha512sum $OVA |awk '{print $1}') == "$SHA512" ]] && echo Checksum OK || echo Checksum DOES NOT MATCH
   #
   
   tar xvf $OVA
