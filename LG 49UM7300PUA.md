@@ -19,3 +19,5 @@
       * The volume on the LG remote does not affect the volumn on the Sonos Beam when using the LG's optical output
     * With an ARC connection active between the LG TV and the Sonos Beam it is not possible to select any other audio input.  Selecting any other audio input plays sound briefly through the selected device, then switches back to the ARC connection.
       * The ARC device must be unplugged to use the bluetooth headset.
+    * The LG Remote will not power on the Apple TV
+      * The Apple TV must still be powered on using the original Apple remote
