@@ -16,6 +16,6 @@
   ## Problems
   * 2019-11-23
     * The optical connection is inconveneient when used with a Sonos Beam
-      * The volume on the LG remote does not affect the volumne on the Sonos Beam when TV's optical output
+      * The volume on the LG remote does not affect the volumn on the Sonos Beam when using the LG's optical output
     * With an ARC connection active between the LG TV and the Sonos Beam it is not possible to select any other audio input.  Selecting any other audio input plays sound briefly through the selected device, then switches back to the ARC connection.
       * The ARC device must be unplugged to use the bluetooth headset.
