@@ -14,8 +14,13 @@
   * Optical <--> Disconnected
   
   ## Problems
+  * 2020-03-28
+    * (undocumented) To power on an Apple TV v2 connected via HDMI:
+      * Select the input
+      * Wait for the message asking if you want to power on the device
+      * Press the >PLAY button on the remote.
   * 2019-11-23
-    * The optical connection is inconveneient when used with a Sonos Beam
+    * The optical connection is inconvenient when used with a Sonos Beam
       * The volume on the LG remote does not affect the volumn on the Sonos Beam when using the LG's optical output
     * With an ARC connection active between the LG TV and the Sonos Beam it is not possible to select any other audio input.  Selecting any other audio input plays sound briefly through the selected device, then switches back to the ARC connection.
       * The ARC device must be unplugged to use the bluetooth headset.
