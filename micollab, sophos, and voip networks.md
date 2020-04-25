@@ -1,4 +1,4 @@
-To get the micollab softphone working behind a restrictive firewall
+To get the voipnetworks / cloud9 micollab softphone working behind a restrictive firewall
 
 Create rules to allow all traffic to/from:
 
